@@ -1,0 +1,98 @@
+{% extends 'home.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container py-3 ml-4 mt-3 mb-3 text-left">
+    <h4>Edit profile</h4>
+  </div>
+  
+  <div class="container mt-4">
+  
+  
+      
+    <form class="form bg-transparent mb-2" action="" method="POST" style="font-weight: 600;">
+      {% csrf_token %}
+
+
+      <div class="form-group">
+        <label class="control-label col-sm-3">Firstname</label>
+        <div class="col-sm-8 ">
+          <input type="text" name="firstname"  id="first" class="form-control" value="{{user1.firstname}}" readonly>
+        </div>
+      </div> 
+
+  
+        <div class="form-group">
+            <label class="control-label col-sm-3">Lastname</label>
+            <div class="col-sm-8 ">
+              <input type="text" name="lastname"  id="second" class="form-control" value="{{user1.lastname}}" readonly>
+            </div>
+          </div> 
+
+          
+          <div class="form-group">
+            <label class="control-label col-sm-3">Mobile number</label>
+            <div class="col-sm-8 ">
+              <input type="text" name="mobilenumber"  id="mob" class="form-control" value="{{user1.mobilenumber}}" readonly>
+            </div>
+          </div> 
+
+          
+        <div class="form-group">
+            <label class="control-label col-sm-3">Email</label>
+            <div class="col-sm-8 ">
+              <input type="text" name="email"  id="eml" class="form-control" value="{{userlogin.email}}" readonly>
+            </div>
+          </div> 
+
+            
+        <div class="form-group">
+            <label class="control-label col-sm-3">Password</label>
+            <div class="col-sm-8 ">
+              <input type="text" name="password"  id="pass" class="form-control" value="{{userlogin.password}}" readonly>
+            </div>
+          </div> 
+
+  
+          <div class="form-group">
+            <label class="control-label col-sm-3">Date Of Birth</label>
+            <div class="col-sm-8 ">
+              <input type="text" name="birthday" id="dob"  class="form-control" value="{{user1.birthday}}" readonly>
+            </div>
+          </div> 
+
+          <div class="form-group">
+            <label class="control-label col-sm-3">Gender</label>
+            <div class="col-sm-8 ">
+              <input type="radio" name="gender" id="gender"  class="" value="male" readonly>Male &nbsp;&nbsp;      
+              <input type="radio" name="gender" id="gender"  class="" value="female" readonly>Female
+
+            </div>
+          </div> 
+  
+          <div class="col-sm-10 pt-3 pb-5">
+          <button type="button" class="btn btn-primary"  name="" value="edit" onclick="return fnSample(this)">EDIT</button>
+          <!-- <button type="button" id="cancel" class="btn btn-danger" name="" value="cancel">CANCEL</button> -->
+          </div>
+         </form>
+  
+  
+  </div>
+<script>
+    function fnSample(button) {
+        if(button.value == 'edit') {
+            document.getElementById('first').readOnly=false;
+            document.getElementById('second').readOnly=false;
+            document.getElementById('mob').readOnly=false;
+            document.getElementById('eml').readOnly=false;
+            document.getElementById('pass').readOnly=false;
+            document.getElementById('dob').readOnly=false;
+            
+            button.value="update"
+            button.type="submit"
+            console.log(button.type)
+        }
+    }
+</script>
+
+{% endblock %}
